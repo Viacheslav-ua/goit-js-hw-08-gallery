@@ -64,19 +64,19 @@ const galleryItems = [
   },
 ];
 
-const arrMarkup = galleryItems.map(item => {
+const arrMarkup = galleryItems.map(({preview, original, description}) => {
   const itemEl = document.createElement('li');
   itemEl.classList.add('gallery__item');
 
   const linkEl = document.createElement('a');
   linkEl.classList.add('gallery__link');
-  linkEl.href = item.original;
+  linkEl.href = original;
 
   const imageEl = document.createElement('img');
   imageEl.classList.add('gallery__image');
-  imageEl.src = item.preview;
-  imageEl.alt = item.description;
-  imageEl.dataset.source = item.original;
+  imageEl.src = preview;
+  imageEl.alt = description;
+  imageEl.dataset.source = original;
 
   linkEl.appendChild(imageEl);
   itemEl.appendChild(linkEl);
